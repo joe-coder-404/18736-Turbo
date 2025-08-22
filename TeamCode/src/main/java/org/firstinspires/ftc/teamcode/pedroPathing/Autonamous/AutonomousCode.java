@@ -139,7 +139,16 @@ public class AutonomousCode extends OpMode{
     public void setPathState(int pState) {
         pathState = pState;
         pathTimer.resetTimer();
+        actionTimer.resetTimer();
+        opmodeTimer.resetTimer();
+        telemetry.addData("Path State", pathState);
+        telemetry.update();
     }
+
+    /**
+     * This initializes the Follower and sets up the paths for the autonomous routine.
+     * It also sets the starting pose of the robot.
+     */
     @Override
     public void init() {
         pathTimer = new Timer();
